@@ -1,122 +1,158 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
-  "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+  "name": "Fabricate",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "tabs": [
-      {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
+  "colors": {
+    "primary": "#7C3AED",
+    "light": "#A78BFA",
+    "dark": "#5B21B6",
+    "background": {
+      "dark": "#0F0F12"
+    }
+  },
+  "theme": "venus",
+  "topbarCtaButton": {
+    "name": "Start Building Free",
+    "url": "https://fabricate.build"
+  },
+  "topbarLinks": [
+    {
+      "name": "Discord",
+      "url": "https://discord.gg/fabricate"
+    }
+  ],
+  "tabs": [
+    {
+      "tab": "Getting Started",
+      "groups": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "group": "Overview",
+          "pages": [
+            "introduction/welcome",
+            "introduction/what-is-fabricate",
+            "introduction/who-its-for",
+            "introduction/quickstart"
+          ]
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "group": "Plans & Billing",
+          "pages": [
+            "introduction/plans-and-credits",
+            "introduction/faq"
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Build",
+      "groups": [
+        {
+          "group": "Overview",
+          "pages": [
+            "build/overview"
+          ]
+        },
+        {
+          "group": "Editor",
+          "pages": [
+            "build/build-mode",
+            "build/discuss-mode",
+            "build/templates",
+            "build/preview",
+            "build/file-explorer",
+            "build/prompt-chips"
+          ]
+        },
+        {
+          "group": "Tech Stack",
+          "pages": [
+            "build/tech-stack",
+            "build/database",
+            "build/authentication",
+            "build/payments",
+            "build/environment-secrets"
+          ]
+        },
+        {
+          "group": "Code & Export",
+          "pages": [
+            "build/github-sync",
+            "build/export-code"
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Deploy",
+      "groups": [
+        {
+          "group": "Deployment",
+          "pages": [
+            "deploy/overview",
+            "deploy/custom-domains",
+            "deploy/visibility"
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Prompting",
+      "groups": [
+        {
+          "group": "Prompting Guide",
+          "pages": [
+            "prompting/best-practices",
+            "prompting/examples",
+            "prompting/iterating",
+            "prompting/by-persona"
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Tips & Tricks",
+      "groups": [
+        {
+          "group": "Guides",
+          "pages": [
+            "tips/from-idea-to-app",
+            "tips/working-with-images",
+            "tips/troubleshooting",
+            "tips/design-fixes",
+            "tips/common-errors"
+          ]
+        }
+      ]
+    },
+    {
+      "tab": "Changelog",
+      "groups": [
+        {
+          "group": "Changelog",
+          "pages": [
+            "changelog/index"
+          ]
         }
       ]
     }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
+  ],
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://x.com/fabricatedev",
+      "github": "https://github.com/FabricateHQ",
+      "discord": "https://discord.gg/fabricate"
     }
+  },
+  "search": {
+    "prompt": "Search Fabricate docs..."
+  },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true,
+    "raiseIssue": true
   }
 }
