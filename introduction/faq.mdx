@@ -1,0 +1,68 @@
+---
+title: "FAQ"
+description: "Frequently asked questions about Fabricate."
+---
+
+<AccordionGroup>
+  <Accordion title="What kind of apps can I build with Fabricate?">
+    Fabricate can build any web application — SaaS tools, dashboards, marketplaces, productivity apps, portfolio sites, internal tools, and more. Every app includes a real frontend (React + TypeScript), backend (Hono.js on Cloudflare Workers), and database (Cloudflare D1). If you can describe it in words, Fabricate can build it.
+  </Accordion>
+
+  <Accordion title="Do I need to know how to code?">
+    No. Fabricate is designed for non-technical builders. That said, if you are a developer, you'll find it even more powerful — the code it generates is clean, well-structured, and exportable.
+  </Accordion>
+
+  <Accordion title="What is the difference between Build Mode and Discuss Mode?">
+    **Build Mode** generates and modifies your app's code. Each message costs credits. **Discuss Mode** is free — use it to plan features, ask questions, brainstorm, or understand your codebase without spending credits.
+  </Accordion>
+
+  <Accordion title="What AI model does Fabricate use?">
+    Fabricate is powered by Anthropic's Claude. Free and Pro plans use Claude Sonnet for fast, high-quality code generation. Scale plan users get access to Claude Opus, the most capable model for complex requirements.
+  </Accordion>
+
+  <Accordion title="Can I export my code?">
+    Yes. You own your code. Export it at any time, push it to GitHub with two-way sync, or deploy it independently. There's no vendor lock-in.
+  </Accordion>
+
+  <Accordion title="How does GitHub sync work?">
+    Connect your GitHub repository from the Build settings. Changes you make in Fabricate are pushed to your repo. You can also pull changes from GitHub into Fabricate. It's a true two-way sync — perfect for teams and developers who want to use their own tools.
+  </Accordion>
+
+  <Accordion title="Can I use a custom domain?">
+    Yes — on Pro and Scale plans. Connect any domain you own in the Deploy settings. Custom domains are not available on the Free plan.
+  </Accordion>
+
+  <Accordion title="Who hosts my app?">
+    Your app runs on Cloudflare's global edge network. It's fast, reliable, and globally distributed. Fabricate handles the hosting infrastructure automatically.
+  </Accordion>
+
+  <Accordion title="What database does Fabricate use?">
+    Fabricate uses Cloudflare D1, which is SQLite-compatible. Your data lives in Cloudflare's infrastructure. The schema and migrations are generated automatically based on your app's requirements.
+  </Accordion>
+
+  <Accordion title="Can I add authentication and payments?">
+    Yes. Fabricate can generate user authentication flows and Stripe payment integrations. Just describe what you need — "add user login with email and password" or "add a $9/month subscription with Stripe" — and Fabricate handles the implementation.
+  </Accordion>
+
+  <Accordion title="What happens if I run out of credits?">
+    You can still use Discuss Mode for free. Build Mode will be unavailable until your credits reset at the start of next month. You can upgrade your plan at any time to get more credits immediately.
+  </Accordion>
+
+  <Accordion title="Is there a free plan?">
+    Yes. The Free plan gives you 60 credits per month with no credit card required. It includes GitHub sync, full Build Mode access, and deployment to Cloudflare. The only limitations are public apps only (no custom domains or password protection).
+  </Accordion>
+
+  <Accordion title="How do I get support?">
+    - **Discord:** [discord.gg/fabricate](https://discord.gg/fabricate) — community help and quick answers
+    - **Email:** [support@fabricate.build](mailto:support@fabricate.build) — for account or billing issues
+    - **X/Twitter:** [@fabricatedev](https://x.com/fabricatedev) — product updates and announcements
+  </Accordion>
+
+  <Accordion title="Can I use Fabricate for client work?">
+    Absolutely. Many agencies and freelancers use Fabricate to build client projects faster. You own the code, can export it, and the architecture follows professional standards.
+  </Accordion>
+
+  <Accordion title="What frameworks and libraries does Fabricate use?">
+    Every Fabricate app uses: React 19, TypeScript, Vite, Tailwind CSS 4, shadcn/ui (frontend), Hono.js on Cloudflare Workers (backend), and Cloudflare D1 (database). This stack is modern, production-grade, and widely used in the industry.
+  </Accordion>
+</AccordionGroup>
