@@ -1,0 +1,98 @@
+---
+title: "Build Mode"
+description: "Build Mode is where your app gets built. Send a message, and Fabricate generates or modifies your code in real time."
+---
+
+Build Mode is the core of Fabricate. Every message you send in Build Mode is processed by Claude, which reads your entire codebase, understands your request, and generates the code changes needed. Changes appear in the live preview instantly.
+
+<Warning>
+  Build Mode uses credits. Each message you send costs credits based on the tokens processed. Use **Discuss Mode** for free planning and questions.
+</Warning>
+
+## How Build Mode Works
+
+<Steps>
+  <Step title="You send a message">
+    Type what you want to change, add, or fix. The more specific you are, the better the result.
+  </Step>
+  <Step title="Fabricate reads your codebase">
+    The AI analyzes your entire app — components, routes, database schema, API endpoints — to understand the full context.
+  </Step>
+  <Step title="Code is generated">
+    Using 32 specialized tools, Fabricate writes the necessary code changes across all affected files simultaneously.
+  </Step>
+  <Step title="Preview updates instantly">
+    Your live preview refreshes to show the changes. No build step, no waiting.
+  </Step>
+</Steps>
+
+## What You Can Do in Build Mode
+
+### Add New Features
+```
+"Add a notifications page that shows the last 10 activity events for the logged-in user"
+```
+
+### Modify Existing UI
+```
+"Change the sidebar to be collapsible on mobile screens"
+```
+
+### Fix Bugs
+```
+"The login button doesn't respond on Safari — fix it"
+```
+
+### Database Changes
+```
+"Add a 'tags' field to the projects table that supports multiple tags"
+```
+
+### Style Changes
+```
+"Make the home page look more minimal — remove the background pattern and use more whitespace"
+```
+
+## Tips for Effective Build Mode Usage
+
+<Tip>
+  **Be specific about scope.** "Fix the button" is harder to action than "Fix the submit button on the contact form — it's not showing a loading state while the form is submitting."
+</Tip>
+
+<Tip>
+  **One change at a time.** For complex features, break them into smaller steps. This gives you more control and uses credits more efficiently.
+</Tip>
+
+<Tip>
+  **Use Discuss Mode first.** If you're not sure how to approach something, switch to Discuss Mode and plan it out before building. It's free and often leads to better results in Build Mode.
+</Tip>
+
+## Understanding Credit Usage
+
+Build Mode cost depends on:
+
+- **Your app's current size** — larger apps have more code for the AI to read
+- **The complexity of your request** — touching many files costs more
+- **The length of the generated code** — more new code = more output tokens
+
+Targeted, specific requests on smaller apps are the most credit-efficient.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can I undo a change made in Build Mode?">
+    Not directly within Fabricate yet. If you have GitHub sync enabled, you can revert to a previous commit. Otherwise, describe the issue to Fabricate and ask it to revert or fix the change.
+  </Accordion>
+
+  <Accordion title="What if the AI generates code that doesn't work?">
+    Describe the issue in a follow-up message. The AI can see the error and the current code state, so it can often fix issues in a subsequent message.
+  </Accordion>
+
+  <Accordion title="Can I edit files directly without using the AI?">
+    Currently, code changes go through Build Mode. You can export your code and edit locally, then sync back via GitHub.
+  </Accordion>
+
+  <Accordion title="Does Build Mode understand the whole app at once?">
+    Yes. Fabricate loads your entire codebase as context, so the AI understands how all your components, routes, and database tables relate to each other.
+  </Accordion>
+</AccordionGroup>
