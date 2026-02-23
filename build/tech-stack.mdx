@@ -1,0 +1,77 @@
+---
+title: "Tech Stack"
+description: "Every Fabricate app uses a modern, production-grade stack — React 19, TypeScript, Vite, Tailwind CSS 4, Hono.js, and Cloudflare Workers."
+---
+
+Fabricate generates apps using a carefully chosen, modern stack. Every library and framework is selected for performance, developer experience, and real-world production readiness.
+
+## Frontend
+
+| Technology | Version | Why |
+|-----------|---------|-----|
+| **React** | 19 | Industry standard, server components support, massive ecosystem |
+| **TypeScript** | Latest | Type safety, better IDE support, fewer runtime errors |
+| **Vite** | Latest | Extremely fast development builds, excellent HMR |
+| **Tailwind CSS** | 4 | Utility-first, no CSS files to maintain, perfect for AI generation |
+| **shadcn/ui** | Latest | High-quality accessible components, fully customizable |
+
+### Why This Frontend Stack?
+
+React 19 with TypeScript gives you a type-safe, component-based frontend that scales. Tailwind CSS 4 is ideal for AI-generated code — utility classes are explicit and predictable. shadcn/ui provides beautiful, accessible components that are copied directly into your codebase (not a black-box library), so you can modify them freely.
+
+## Backend
+
+| Technology | Version | Why |
+|-----------|---------|-----|
+| **Hono.js** | Latest | Lightweight, TypeScript-first, runs on edge runtimes |
+| **Cloudflare Workers** | Latest | Global edge deployment, instant cold starts, no servers to manage |
+
+### Why Hono on Cloudflare Workers?
+
+Hono is a lightweight, Express-like framework built specifically for edge environments. Running on Cloudflare Workers means your API routes are distributed globally — responses come from the nearest datacenter to your user, not from a single server in one region. Zero cold starts, no infrastructure management.
+
+## Database
+
+| Technology | Why |
+|-----------|-----|
+| **Cloudflare D1** | SQLite-compatible, globally distributed, integrated with Cloudflare Workers |
+
+D1 uses SQLite syntax, which is familiar and well-supported. It's automatically managed by Cloudflare — no database server to provision, no connection pooling to configure. See [Database](/build/database) for details.
+
+## Full Stack Architecture
+
+```
+Browser
+  └── React 19 + TypeScript + Vite (Frontend)
+        ├── shadcn/ui components
+        ├── Tailwind CSS 4 styling
+        └── API calls to Hono.js routes
+
+Cloudflare Edge
+  └── Hono.js API (Cloudflare Workers)
+        ├── Business logic
+        ├── Authentication middleware
+        └── D1 database queries
+
+Cloudflare D1
+  └── SQLite database
+        ├── User data
+        ├── App data
+        └── Session storage
+```
+
+## Can I Change the Tech Stack?
+
+Currently, Fabricate generates code for this specific stack. You can export your code and modify it to use different technologies, but the AI-powered build system is optimized for and tested with this stack.
+
+<AccordionGroup>
+  <Accordion title="Can I add additional libraries?">
+    Yes. Ask Fabricate to install and use any npm package. For example: "Add the recharts library and create a line chart component showing monthly revenue."
+  </Accordion>
+  <Accordion title="Can I use a different CSS framework?">
+    The generated code uses Tailwind CSS 4. You can ask Fabricate to add CSS modules or styled-components for specific components, but the base styling will be Tailwind.
+  </Accordion>
+  <Accordion title="Is React Server Components supported?">
+    The current stack is a client-side React SPA with a Hono.js backend. Server components are not used in the current architecture.
+  </Accordion>
+</AccordionGroup>
