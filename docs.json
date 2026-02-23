@@ -1,6 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "name": "Fabricate Docs",
+  "theme": "mint",
+  "name": "Fabricate",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
