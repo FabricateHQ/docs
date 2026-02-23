@@ -1,0 +1,90 @@
+---
+title: "Authentication"
+description: "Fabricate generates complete user authentication flows — sign up, login, sessions, and password management — all handled by AI."
+---
+
+Authentication is one of the most common things people ask Fabricate to build. Just describe the auth flow you want, and Fabricate generates the complete implementation — frontend forms, API routes, session management, and database schema.
+
+## Adding Authentication
+
+Just ask:
+
+```
+"Add user authentication with email and password sign up and login"
+```
+
+Or be more specific:
+
+```
+"Add authentication with:
+- Email/password sign up with email verification
+- Login with remember me option
+- Password reset via email
+- Protected routes that redirect to login if not authenticated"
+```
+
+## What Gets Generated
+
+When you add authentication, Fabricate creates:
+
+**Database tables:**
+- `users` — stores user accounts
+- `sessions` — manages login sessions
+- `password_reset_tokens` — for password recovery (if requested)
+
+**API routes:**
+- `POST /api/auth/signup` — create account
+- `POST /api/auth/login` — authenticate and create session
+- `POST /api/auth/logout` — destroy session
+- `GET /api/auth/session` — check current auth state
+- `POST /api/auth/reset-password` — initiate password reset (if requested)
+
+**Frontend:**
+- Login page with form validation
+- Sign up page with error handling
+- Auth context/provider for state management
+- Protected route wrapper component
+- User menu with logout button
+
+## Auth Patterns
+
+### Email + Password (Default)
+The most common pattern. Secure, uses bcrypt for password hashing, session tokens in cookies.
+
+### Social Login
+```
+"Add Google login alongside the existing email/password auth"
+```
+
+### Magic Link
+```
+"Replace the password flow with magic link authentication — users enter their email 
+and get a login link sent to them"
+```
+
+## Security Best Practices
+
+Fabricate's generated auth code follows security best practices:
+
+- Passwords hashed with **bcrypt** (not stored in plain text)
+- Session tokens are **cryptographically random** UUIDs
+- Sessions stored **server-side** in D1 (not just in a JWT)
+- **HttpOnly, Secure** cookies to prevent XSS theft
+- Input validation on all auth endpoints
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can I add roles and permissions?">
+    Yes. Ask Fabricate to add roles: "Add admin and user roles. Admins can access the /admin dashboard, regular users cannot."
+  </Accordion>
+  <Accordion title="Can I require email verification?">
+    Yes: "Add email verification — users must verify their email before they can log in."
+  </Accordion>
+  <Accordion title="What if I want OAuth (Google, GitHub, etc.)?">
+    Ask Fabricate to add the specific OAuth provider you want. It will generate the OAuth flow, callback routes, and database updates needed.
+  </Accordion>
+  <Accordion title="How are sessions stored?">
+    Sessions are stored in your Cloudflare D1 database. The session ID is stored in an HttpOnly cookie on the user's browser.
+  </Accordion>
+</AccordionGroup>
