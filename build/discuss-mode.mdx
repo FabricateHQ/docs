@@ -1,0 +1,75 @@
+---
+title: "Discuss Mode"
+description: "Discuss Mode is a free, unlimited way to plan, brainstorm, and get advice from the AI — without spending any credits."
+---
+
+Discuss Mode is always free. Switch to it any time you want to think through your app, ask questions, or get advice without worrying about credit usage.
+
+<Info>
+  Discuss Mode uses the same Claude AI as Build Mode — it just doesn't modify your code. It's like having a senior developer on call for free.
+</Info>
+
+## When to Use Discuss Mode
+
+- **Before building a complex feature** — plan the approach before writing any code
+- **When you're stuck** — describe the problem and ask for suggestions
+- **To understand your code** — "What does this API route do?" or "How is authentication currently set up?"
+- **For product decisions** — "Should I use a modal or a separate page for this form?"
+- **To estimate complexity** — "How hard would it be to add real-time notifications?"
+
+## Example Conversations
+
+### Planning a Feature
+```
+You: I want to add a team collaboration feature. Users should be able to invite others 
+     to their workspace and assign roles. How should I structure this?
+
+Fabricate: Good question. For a team workspace system, you'll want...
+```
+
+### Understanding Your Code
+```
+You: What does the /api/auth/session route do exactly?
+
+Fabricate: That route handles session validation. It reads the session token 
+           from the cookie, checks it against the sessions table in D1...
+```
+
+### Getting Architecture Advice
+```
+You: Should I store user preferences in the database or in localStorage?
+
+Fabricate: It depends on whether preferences need to sync across devices...
+```
+
+## Switching Between Modes
+
+Toggle between Build Mode and Discuss Mode using the mode selector in the chat panel. Your conversation history is preserved when you switch.
+
+<Tip>
+  A common pattern: use Discuss Mode to plan your next 3-5 features, get Fabricate's recommendations on ordering and approach, then switch to Build Mode to execute them one by one.
+</Tip>
+
+## What Discuss Mode Can't Do
+
+Discuss Mode cannot make changes to your code. It can provide instructions, write code snippets as suggestions, and explain concepts — but to actually modify your app, you need to switch to Build Mode.
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Is Discuss Mode really completely free?">
+    Yes. Discuss Mode messages do not consume any credits, regardless of how long the conversation is.
+  </Accordion>
+
+  <Accordion title="Does Discuss Mode have access to my codebase?">
+    Yes. The AI can read your current codebase in Discuss Mode, so it can answer specific questions about your app and give contextually accurate advice.
+  </Accordion>
+
+  <Accordion title="Can I ask Discuss Mode to write code?">
+    It can show you code examples and suggestions in the chat, but it won't apply them to your app. Switch to Build Mode to make actual changes.
+  </Accordion>
+
+  <Accordion title="Is there a message limit in Discuss Mode?">
+    No. There is no limit on the number of Discuss Mode messages.
+  </Accordion>
+</AccordionGroup>
