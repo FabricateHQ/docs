@@ -1,0 +1,99 @@
+---
+title: "Database"
+description: "Fabricate apps use Cloudflare D1 — a serverless SQLite database that's globally distributed and automatically managed."
+---
+
+Every Fabricate app comes with a Cloudflare D1 database. D1 is built on SQLite, globally distributed on Cloudflare's edge network, and requires zero configuration from you.
+
+## How It Works
+
+When you build an app with Fabricate, the AI automatically:
+
+- **Designs your database schema** based on what your app needs
+- **Generates migrations** to create and modify tables
+- **Writes database queries** in your API routes
+- **Updates the schema** when you add new features that need new tables or columns
+
+You don't write SQL. You describe what you need and the AI handles the database.
+
+## Example
+
+```
+Prompt: "Add a comments system to the blog. Each comment should have the 
+         author's name, email, content, and timestamp."
+```
+
+Fabricate will:
+1. Add a `comments` table to your D1 schema
+2. Create a migration to add the table
+3. Add API routes to create, read, and delete comments
+4. Update the frontend to display comments on blog posts
+
+## Schema Example
+
+A typical Fabricate app database might look like:
+
+```sql
+-- Users table
+CREATE TABLE users (
+  id TEXT PRIMARY KEY,
+  email TEXT UNIQUE NOT NULL,
+  name TEXT,
+  created_at INTEGER NOT NULL
+);
+
+-- Sessions table
+CREATE TABLE sessions (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  expires_at INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- Your app's custom tables
+CREATE TABLE projects (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  name TEXT NOT NULL,
+  description TEXT,
+  created_at INTEGER NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+```
+
+## Data Access
+
+D1 data is accessed from your Hono.js API routes using the D1 binding. Fabricate generates these routes for you. Example:
+
+```typescript
+app.get('/api/projects', async (c) => {
+  const userId = c.get('userId'); // from auth middleware
+  const projects = await c.env.DB.prepare(
+    'SELECT * FROM projects WHERE user_id = ? ORDER BY created_at DESC'
+  ).bind(userId).all();
+  return c.json(projects.results);
+});
+```
+
+## Limitations
+
+<Info>
+  D1 is SQLite-based. It's great for most web apps, but if you need advanced PostgreSQL features (like complex JSON operations, full-text search, or very high write throughput), consider using an external database and syncing via GitHub.
+</Info>
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="Can I see my database data?">
+    You can view and query your D1 database through the Cloudflare dashboard. Your data is stored securely on Cloudflare's infrastructure.
+  </Accordion>
+  <Accordion title="Can I import existing data?">
+    Yes. Tell Fabricate you want to seed your database with initial data, or describe the data import you need — it will generate a migration or seeding script.
+  </Accordion>
+  <Accordion title="What happens to my data if I switch plans?">
+    Your data persists regardless of plan changes. It's stored on Cloudflare's infrastructure and is not affected by your Fabricate subscription.
+  </Accordion>
+  <Accordion title="Can I add indexes for performance?">
+    Yes. Ask Fabricate to add database indexes: "Add an index on the projects table for user_id to speed up user project queries."
+  </Accordion>
+</AccordionGroup>
